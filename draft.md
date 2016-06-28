@@ -44,18 +44,51 @@ Cette section vise à présenter le service informatique de NOZ et quels furent 
 
 ### Les différents services et logiciels
 Le service informatique chez Noz est organisé en deux pôles : le étude et le pôle exploitation. Le pôle exploitation a pour tâche de s'assurer de la continuité du bon fonctionnement des infrastructures informatiques. Il gère la distribution du matériel, l'administration des serveurs, du réseau, de la sécurité. Il assure également le support de toutes ces fonctionnalités par téléphone via une équipe située en Roumanie. Il s'occupe de toute la partie hardware. Le pôle étude, quant à lui, s'occupe de la partie logicielle.
-Il chiffre, planifie et développe les créations et évolutions des transactions sur les progiciels utilisés dans l'entreprise. Les principaux progiciels utilisés sont Selligent − CRM, Cognos − Décisionnel − et SAP − ERP. Le pôle est divisé en sous-sections : une sous-section dédiée par progiciel. Il y a également un pôle Web, qui s'occupe de développer des outils spécifiques qui ne peuvent pas être réalisés avec les autres progiciels. Chaque pôle dispose d'une contrepartie en Roumanie et est composé de 3 à 6 personne.
-Le pôle le plus important en terme de taille est le pôle SAP. Il comporte un peu plus d’une vingtaine de personnes. Il est subdivisé en trois parties : Chefs de projet, Développeurs, Support. Le pôle support procure une assistance à tout l’univers noz pour l’utilisation de SAP et de ses transactions spécifiques au flux NOZ. C’est la première ligne pour la résolution de problème et le repport d’anomalies. Les deux groupes Chefs de projet et Dévoloppeurs, eux, s’occupent de toute la maintenance logicelle et du développement d’évolutions et de nouvelles fonctionnalités. C’est au sein du pôle SAP que j’ai effectué mes deux années d’alternance. L’organisation du pôle SAP en plusieurs sous-parties est calquée sur la manière dont sont gérés les projets.
+Il chiffre, planifie et développe les créations et évolutions des transactions sur les progiciels utilisés dans l'entreprise. Les principaux progiciels utilisés sont Selligent − CRM, Cognos − Décisionnel − et SAP − ERP. Le pôle est divisé en sous-sections : une sous-section nédiée par progiciel. Il y a également un pôle Web, qui s'occupe de développer des outils spécifiques qui ne peuvent pas être réalisés avec les autres progiciels. Chaque pôle dispose d'une contrepartie en Roumanie et est composé de 3 à 6 personne.
+Le pôle le plus important en terme de taille est le pôle SAP. Il comporte un peu plus d’une vingtaine de personnes. Il est subdivisé en trois parties : Chefs de projet, Développeurs, Support. Le pôle support procure une assistance à tout l’univers noz pour l’utilisation de SAP et de ses transactions spécifiques au flux NOZ. C’est la première ligne pour la résolution de problèmes et le repport d’anomalies. Les deux groupes Chefs de projet et Dévoloppeurs, eux, s’occupent de toute la maintenance logicelle et du développement d’évolutions et de nouvelles fonctionnalités. C’est au sein du pôle SAP que j’ai effectué mes deux années d’alternance. L’organisation du pôle SAP en plusieurs sous-parties est calquée sur la manière dont sont gérés les projets. Nous expliquerons dans un instant la gestion des projet SAP. Avant cela, il convient d’expliquer brièvement en quoi il consiste.
+
+### SAP
+TODO
 
 ### La gestion des projets SAP
 *Je parlerai ici de la gesion des projets dans le service informatique en me centrant exclusivement sur la perspective SAP. Les autres progiciels seront significativement mis à l’écart, n’ayant que trop peu travaillé avec. Cela ne devrait toutefois pas créer de confusion : les aspects que je traiterai seront suffisament transverses à tout le service informatique.*
 Le service informatique fait face à deux types de demandes : les demandes formalisées et les demandes “urgentes” de maintenance (Toutes les demands sont urgentes, mais les demandes de maintenance le sont *particulièrement*). Je parlerai en premier des demandes formalisées. Je reviendrai sur les demandes de maintenance ensuite.
 
 #### Les demandes formalisées
-Tout projet réalisé par le service informatique commence par une demande dans l’outil de suivi. Il s’agit d’un outil web développé par le service informatique lui-même pour ses besoins. Il propose des fonctionnalités similaires à des outils comme Jira ou Redmine. Chaque client dispose d’un compte sur l’outil et peut s’y connecter pour déposer une nouvelle demande. Après que la faisabilité de la demande ait été étudiée, un chiffrage et une date de livraison sont estimées. Il y a un premier retour au client et il est ensuite décidé du lancement de la réalisation de la demande.
+La réalisation des projet suit *grosso modo* un cycle en V. Nous allons cependant détailler les quelques aspects et points de terminologie qui diffèrent.
+
+##### Étude de faisabilité
+Tout projet réalisé par le service informatique commence par une demande dans l’outil de suivi. Il s’agit d’un outil web développé par le service informatique lui-même pour ses besoins. Il propose des fonctionnalités similaires à des outils comme Jira ou Redmine. Chaque client dispose d’un compte sur l’outil et peut s’y connecter pour déposer une nouvelle demande.
+Chaque demande fait l’objet d’une étude de faisabilité. Sont examinés :
+* Les besoins réels (autant que possible), pour éviter que le client ne “saute” vers une demande de solution ne correspondant pas vraiment à son besoin.
+* Les nécessités d’interopérabilité avec les autres logiciels. En effet certaines demandes nécessitent d’interragir avec d’autres composants logiciels. Si parfois ces interactions sont gérés de manière native par les logiciels et sont ainsi aisées à réaliser, parfois il peut s’agir de contraintes surprise particulières lourdes.
+* La cohérence de la demande avec le reste des flux NOZ. Certains projets împortant impliquent plusieurs services et il est donc important que ces services soient synchrones entre-eux. Du fait du cloisonnement dont nous parlions plus haut, ce n’est pas toujours le cas, et il arrive parfois qu’une demande n’aille pas tout à fait dans le sens des autres services. Il imcombe par défaut au service informatique de s’assurer de cette cohérence inter-service au niveau de la demande, sous peine d’avoir à retravailler (ou même annuler) des parties parfois très conséquentes de solutions livrées.
+Plusieurs aller-retours sont parfois nécessaires pour arriver à une formulation du besoin qui convienne à la fois au client et au service informatique. L’aide à la formulation du besoin et l’amélioration de la communication avec le client est un des axes actuel d’amélioration actuel du service informatique.
+Après que la faisabilité de la demande ait été étudiée, un chiffrage et une date de livraison sont estimées. Il y a un premier retour au client et il est ensuite décidé du lancement de la réalisation de la demande.
+
+##### Conception
+Une fois le *go* d’une demande décidé, le travail des chefs de projet commence. Il faut noter que, malgré leur titre, les chefs de projet ont aussi un rôle de concepteur et d’analiste. Une de leur principale force réside dans leur connaissance approfondie de leur domaine (finance, logistique, etc.) et de la manière dont ils sont mis en œuvre au sein de l’univers NOZ. Leur tâche à ce stade de la demande consiste à écrire les spécifications fonctionnelles de la demande en fonction du besoin exprimé. Les enjeux à ce stade de la demande sont principalement de l’ordre de l’étude d’impact sur l’existant. L’ensembles des transactions dédiées au métier NOZ commence en effet à être volumineux et, ajouté à la complexité inhérente à SAP, rend l’ajout de nouvelles fonctionnalités de plus en plus compliqué. Un travail particulières est donc réalisé pour faire en sorte que la demande soit implémenté sans nuire à la stabilité de l’ensemble du système actuel. Les problématiques rencontrées à ce stade concernent des questions comme :
+* Est-il vraiment nécessaire de réaliser des développements spécifique, ou est-il possible de prendre du standard SAP et de le configurer pour coller au besoin ?
+* Faut-il créer une nouvelle transaction ou en étendre une autre ?
+* Faut-il créer une nouvelle table ?
+* Faut-il relier deux tables ou dupliquer des données ?
+Ces question tranchées, un cahier de spécifications fonctionnelles est rédigé. Il convient de noter que, à nouveau, de nombreux échanges avec le client sont également nécessaires pendant cette étape. Une fois cette étape terminée, les grosses décisions de conceptions ont normalement été prises. C’est maintenant au tour du développeur.
+
+##### Réalisation
+C’est à cette étape que j’ai réalisé la quasi-totalité de mes missions pendant mon alternance. C’est pendant cette étape que la solution de la demande est effectivement construite. Le cahier de spécifications fonctionnelles est fourni au développeur et il lui incombe de construire :
+* Un cahier de spécifications techniques
+* Des fiches de tests unitaires
+* Un programme (ou des modifications sur l’existant) fonctionnel
+Idéalement, les spécifications fonctionnelles sont suffisament souples pour laisser au développeur les choix d’implémentation. Nous reviondrons très en détail sur cette étape dans la seconde partie de ce mémoire. Pour l’instant, gardons à l’esprit qu’un logiciel fonctionnel doit être fourni à la fin de celle-ci.
+
+##### Recette
+
+#### Les demandes non formalisées
+
+# Missions
 
 Gestion des risques
-
+Prise en charge des demandes
 Planification
 Métier
 Durant
@@ -63,5 +96,6 @@ Relation avec le client
 Documentation
 Qualité
 Gestion du legacy code
+Programmation objet
 
 
