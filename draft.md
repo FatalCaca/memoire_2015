@@ -52,6 +52,7 @@ TODO
 
 ### La gestion des projets SAP
 *Je parlerai ici de la gesion des projets dans le service informatique en me centrant exclusivement sur la perspective SAP. Les autres progiciels seront significativement mis à l’écart, n’ayant que trop peu travaillé avec. Cela ne devrait toutefois pas créer de confusion : les aspects que je traiterai seront suffisament transverses à tout le service informatique.*
+Cette partie décrit en détail le cycle de vie des demandes informatique. Elle sert à la fois à poser le contexte pour le reste du document et pourrait presque servir de sommaires pour de nombreux thèmes que nous traiterons ensuite.
 Le service informatique fait face à deux types de demandes : les demandes formalisées et les demandes “urgentes” de maintenance (Toutes les demands sont urgentes, mais les demandes de maintenance le sont *particulièrement*). Je parlerai en premier des demandes formalisées. Je reviendrai sur les demandes de maintenance ensuite.
 
 #### Les demandes formalisées
@@ -82,6 +83,14 @@ C’est à cette étape que j’ai réalisé la quasi-totalité de mes missions 
 Idéalement, les spécifications fonctionnelles sont suffisament souples pour laisser au développeur les choix d’implémentation. Nous reviondrons très en détail sur cette étape dans la seconde partie de ce mémoire. Pour l’instant, gardons à l’esprit qu’un logiciel fonctionnel doit être fourni à la fin de celle-ci.
 
 ##### Recette
+C’est l’étape finale de la réalisation d’une solution. Elle est divisée en deux parties :
+* Recette informatique
+* Recette utilisateur
+L’objecif principal de la recette informatique est de s’assurer que l’utilisateur ne voit (autant que possible) qu’une version fonctionnelle de la solution. C’est aussi de mettre en exergue des bugs ou des anomalies de conception qui n’auraient pas été détectées plus haut.
+Il arrive qu’un livrable en première version soit recallé par le chefs de projet. Un premier prototype met en effet souvent en lumière des choses auxquelles ont n’aurait pu penser en premier lieu, lors de la rédaction du document fonctionnels. Dans ces cas il y a correction ou complétion des documents fonctionnels et de nouveaux développements sont effecué pour finaliser la solution.
+La recette utilisateur arrive ensuite. Elle est idéalement ultime. Elle est là pour s’assurer que la solution est fonctionnelle *end to end*. Malheureusement, dans les faits, il arrive parfois que certains points du besoin soient revus à ce moment là. Il ne s’agit pas nécessairement d’omissions dues à des négligences mais tout simplement du fait qu’un produit fini offre beaucoup plus de vision sur son besoin qu’un simple cahier des charges.
+Il incombe alors au chef de projet de discerner entres les écarts réels entre la solution et le besoin qui était exprimé au début et les remarques qui relèvent plus de futures évolutions et nouvelles fonctionnalités.
+Une demande validée en recette est considérée comme close. Toutes les tâches suivantes la concernant sont de l’ordre de la maintenance et ne sont plus directement gérées par l’outil Web de gestion des demandes.
 
 #### Les demandes non formalisées
 
