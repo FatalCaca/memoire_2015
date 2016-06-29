@@ -80,7 +80,7 @@ C’est à cette étape que j’ai réalisé la quasi-totalité de mes missions 
 * Un cahier de spécifications techniques
 * Des fiches de tests unitaires
 * Un programme (ou des modifications sur l’existant) fonctionnel
-Idéalement, les spécifications fonctionnelles sont suffisament souples pour laisser au développeur les choix d’implémentation. Nous reviondrons très en détail sur cette étape dans la seconde partie de ce mémoire. Pour l’instant, gardons à l’esprit qu’un logiciel fonctionnel doit être fourni à la fin de celle-ci.
+Idéalement, les spécifications fonctionnelles sont suffisament souples pour laisser au développeur la plupart des choix d’implémentation. C’est pendant cette étape que la plupart de mes missions se sont déroulées. Nous reviondrons très en détail sur cette étape dans la seconde partie de ce mémoire. Pour l’instant, gardons à l’esprit qu’un logiciel fonctionnel doit être fourni à la fin de celle-ci.
 
 ##### Recette
 C’est l’étape finale de la réalisation d’une solution. Elle est divisée en deux parties :
@@ -93,9 +93,13 @@ Il incombe alors au chef de projet de discerner entres les écarts réels entre 
 Une demande validée en recette est considérée comme close. Toutes les tâches suivantes la concernant sont de l’ordre de la maintenance et ne sont plus directement gérées par l’outil Web de gestion des demandes.
 
 #### Les demandes non formalisées
+Toutes les tâches de maintenance suffisament légères ou urgentes sont généralement assez peu formalisées. Une adresse mail est dédiée pour traiter ces demandes. Si il s’agit d’un *single point of contact*, cette adresse n’est pas diffusée directement auprès du client. Ce sont les chefs de projet et le support qui communiquent principalement dessus.
+Si les demandes en elles-même sont informelles, la manière d’y répondre doit toutefois respecter autant que possible les règles de fonctionnement du développement. Tous les documents concernés doivent être modifiés en conséquence et une recette partielle relative à la demande doit être effectuée.
+L’adresse mail et, plus généralement la manière dont sont traitées les petites demandes informelle, est un reliquat de la façon dont étaient traitées les demandes aux débuts du département informatique de NOZ. Il s’agit d’une façon de faire dont le pôle étude s’éloigne petit à petit. Cela reste toutefois un bon moyen de traiter les demandes où une formalisation complète représenterait un investissement aux retours trop incertains. Dans les faits, on est assez proche de la manière dont seraient gérées des tâches dans un contexte agile (en particulier Scrum). Le mail de la demande sert souvent de point de départ à des échanges entre clien, chef de projet et développeur. L’historique des mails peu ensuite servir de référence future.
 
 # Missions
 
+Introduction
 Gestion des risques
 Prise en charge des demandes
 Planification
