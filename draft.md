@@ -132,15 +132,35 @@ Si les demandes en elles-même sont informelles, la manière d’y répondre doi
 L’adresse mail et, plus généralement la manière dont sont traitées les petites demandes informelle, est un reliquat de la façon dont étaient traitées les demandes aux débuts du département informatique de NOZ. Il s’agit d’une façon de faire dont le pôle étude s’éloigne petit à petit. Cela reste toutefois un bon moyen de traiter les demandes où une formalisation complète représenterait un investissement aux retours trop incertains. Dans les faits, on est assez proche de la manière dont seraient gérées des tâches dans un contexte agile (en particulier Scrum). Le mail de la demande sert souvent de point de départ à des échanges entre client, chef de projet et développeur. L’historique des mails peut ensuite servir de référence future.
 
 ## Conclusion
-L’univers NOZ
+En raison de la croissance rapide de l’entreprise, le pôle étude de l’univers NOZ en phase d’évolution accélérée depuis plusieurs années. La gestion de projet de ses débuts s’est vite trouvée incapable de gérer les demandes croissantes en complexité. Il a donc du s’adapter au fur et à mesure qu’il grandissait, tout en continuant à traiter les nouvelles demandes.
+L’organisation résultante (qui correspond à ce que l’on a expliqué plus haut) en est actuellement à un stade où elle peut gérer de manière structurée les nouvelles demandes. Les livrables sont soumis à un certain contrôle, une documentation technique est rédigée et une trace de l’expression des besoins formalisée est conservée.
+Les principaux difficultés auxquelles le pôle étude doit faire face sont :
+* continuer à développer de nouvelles fonctionnalités en faisant évoluer et en restant consistant avec les anciennes (sans régressions)
+* des changements de collaborateurs assez réguliers et une gestion d’équipe à l’international
+* le développement de projets d’envergure trop peu suffisament exprimés et impliquant de nombreux domaines métier de l’univers
+
+Nous allons maintenant passer à la seconde partie de ce mémoire, qui se focalise sur mes missions et les difficultés que j’ai pu rencontrer.
+
 # Missions
 
-Introduction
+## Introduction
+Mon arrivée à l’univers NOZ a commencé par une semaine de formation au langage ABAP. Comme nous l’avons vu plus haut, l’ABAP est le langage utilisé pour développer de nouvelles fonctionnalités spécifiques sur SAP. C’est à travers lui que je devais ensuite développer pour l’univers NOZ pour deux ans.
+
+## Résumé des missions
+
+### Développement 1
+
+### Développement orienté objet
+
+### Développement 2
+
+### Nouvelle manière de gérer la documentation
+
+
 Gestion des risques
 Prise en charge des demandes
 Planification
 Métier
-Durant
 Relation avec le client
 Documentation
 Qualité
