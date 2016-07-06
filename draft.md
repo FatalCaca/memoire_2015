@@ -74,6 +74,7 @@ L’ABAP a en revanche plusieurs avantages. À noter :
 * Une excellente intégration dans SAP. L’ABAP est imédiatement conscient des changements qui ont lieux dans les tables. Tout est situé sur le serveur, il n’y a presque jamais de probléme de synchronisation de version.
 * Bien que parfois étrangement implémentées, l’ABAP propose une quantité importante de fonctionnalité. Certains concepts objets sont maintenant implémentés, on peut exposer des modules fonction sous forme de web-services, on peut exposer les transactions sous forme de pages web, etc.
 * De nombreux “points d’amélioration” sont disponibles dans les transactions standards pour venir y brancher un morceau de code spécifique.
+* Tout dans SAP écrit en ABAP. Il est donc possible de TOUT débuger. On peut aller voir dans le code source d’absolument n’importe quoi. Ceci permet, en principe, de vérifier les implications pour le système de n’importe quelle action de l’utilisateur dans son utilisation de tous les jours. Nous reviendrons sur ce point.
 Nous reviendrons à plusieurs reprises sur l’ABAP dans la seconde partie de ce mémoire.
 
 #### Les environnements et la gestion des versions
@@ -142,17 +143,72 @@ Les principaux difficultés auxquelles le pôle étude doit faire face sont :
 Nous allons maintenant passer à la seconde partie de ce mémoire, qui se focalise sur mes missions et les difficultés que j’ai pu rencontrer.
 
 # Missions
+Nous allons dans cette partie passer en revue certaines de mes missions. L’objectif n’est pas de rentrer dans les détails de la réalisation mais de se concentrer sur les problématiques et sur les solutions apportées en terme de méthodologie de travail. Chaque section commencera par une brève présentation du contexte et sera suivi par plusieurs remarques et commentaires rétrospectives.
 
 ## Introduction
 Mon arrivée à l’univers NOZ a commencé par une semaine de formation au langage ABAP. Comme nous l’avons vu plus haut, l’ABAP est le langage utilisé pour développer de nouvelles fonctionnalités spécifiques sur SAP. C’est à travers lui que je devais ensuite développer pour l’univers NOZ pour deux ans.
 
 ## Résumé des missions
 
-### Développement 1
+### Développement : programme de création de magasin
+
+#### Besoin et résumé de la solution
+Le premier développement conséquent que j’ai réalisé pour NOZ fut une transaction pour l’équipe support du pôle SAP. Il s’agissait d’une transaction pour automatiser plusieurs tâches qui doivent être effectuées lors de l’ouverture d’un nouveau magasin. NOZ ouvre plus d’un magasin par mois, il s’agissait donc de tâches à réaliser fréquemment. Le pôle support avait pas moins d’une vingtaine d’opérations à effectuer, opérations qui consistaient à :
+* Créer les données de base en copiant un magasin de référence
+* Créer les données dépendantes dans d’autres tables
+* Relier les entrées de tables
+* Ajouter des entrées dans la configuration de SAP
+
+La transaction terminée a permis de réaliser toutes ces tâches d’une seule traite et automatiquement. Elle créait également un *ordre de transport* et y mettait toutes les nouvelles données. Un ordre de transport est comme un paquet dans lequel on met des données que l’on désire transporter vers un autre environnement : QAS et PRD. Les données des magasins étaient donc crées en DEV et ensuite transportées vers la production. On était ainsi certain d’avoir cohérence des données entre l’environnement de développement et la production.
+
+#### Détermination du besoin
+Cette tâche fut parciculière en terme de besoin. Celui-ci était parfaitement clair sans qu’il y ait jamais eu de cahier des charge de rédigé. Le point de départ était en effet la procédure à suivre, du point du vue de l’utilisateur support, pour réaliser toutes les tâches de création de magasin.
+La tâche ne se fut cependant pas sans difficulté. La procédure était en effet rédigée avec des termes fortement ancré dans le métier. Si celle-ci restait exécutable par quelqu’un ne le connaissant pas ou presque, il restait du travail à faire pour comprendre ce *qu’impliquaient* chacunes des opérations.
+Cette compréhension du “fond” des opérations était absolument nécessaire. En effet dans cette mission, et en réalité dans la quasi-totalité des missions de développement que j’ai eu à réaliser, le cheminement de réflexion à suivre était approximativement celui-ci : comprendre ce qu’impliquaient les actions de l’utilisateur et chercher comment réaliser ces mêmes action avec uniquement du code. Il était donc nécessaire de comprendre les actions réalisées en terme métiers pour ensuite les traduire en actions systèmes, pour enfin réaliser ces actions système d’une autre manière, automatique.
+Pour cela la voie royale est le contact direct avec le demandeur. Sans la proximité et l’implication du pôle support il n’aurait probablement pas été possible de cerner les implications de la fonctionnalité demandée. En tout cas pas aussi justement.
+Cette demande était une demande qui était en attente depuis un certain temps. L’autre moyen pour apréhender les objectifs de celle-ci était donc par le biais du début de documentation laissé par le développeur précédent.
+
+#### Gestion de la documentation
+Ces lorsqu’on en a besoin qu’on comprend l’importance de la documentation. Cette mission fut un cas où le peu de documentation disponible fut salvateur.
+
+### Développement : workflow comptable
+
+#### Besoin et résumé de la solution
+Un des développement qui a occupé un temps important et qui s’est réparti la quasi totalité de ma période d’alternance fut sur la gestion du workflow comptable. Le workflow comptable consistait en un ensemble de transactions dont l’objectif était de gérer l’intégration, l’historisation et l’archivage de pièces comptables papier dans SAP (factures et coordonées bancaires). Les fonctionnalités principales sont :
+* Ajouts des scans des pièces papier (factures et CB)
+* Intégration manuelle des données dans SAP. La transaction indique un listing des pièces nouvellement scannées et fourni des racourci vers d’autres transactions comptables dans lesquelles l’utilisateur peut entrer les données portées par la pièce paper scannée. La transaction est organisée par onglets : plus une pièce est intégrée dans SAP, plus elle avance dans le flux (dans le workflow)
+* Passage de pièces en archive
+* Consultation de l’historique des pièces
+* Reporting et statistique sur les pièces comptables. Ce n’est pas un reporting sur les pieces elles-mêmes, mais sur les pièces au sein du workflow : combien de temps une pièce de tel type met à être intégrée par les utilisateurs, quels types de piêce mettent du temps à être validé, etc.
+
+Ci-dessous un diagrame pour donner une vue d’ensemble du fonctionnement :
+TODO
+
+#### Gestion du temps
+
+#### Communication avec le client
+
+### Développement : Extractions de données France Invendus pour Cognos
+
+#### Besoin et résumé de la solution
+France Invendus (FI) est la société qui s’occupe de revendre (par gros lots) les produits qui n’ont pas été vendus en magasin. Les offres et des commandes FI sont gérées par SAP mais elles contiennent des données différentes des commandes et des offres “normales”. Le pôle décisionnel avait besoin d’avoir à disposition ces données pour des reporting et des statistiques. Il fallait donc réaliser un programme qui réalise les extractions de ces données.
+Il fallait également réaliser une transaction pour gérer de nouvelles données supplémentaires spécifiques à FI.
+
+Il a fallu, quelques mois plus tard, revoir le fonctionnement des deux transactions (extraction et transaction de gestion) car il fallait rendre possible plusieurs travaux simultanés et concurrent sur une même offre. Cette révision fut surtout un travail d’étude et de prévention des risques.
+
+#### Gestion du temps
+
+#### Gestion des risques
+
+### Développement : Extractions de données de commande vers excel
+
+#### Besoin et résumé de la solution
+
+#### Gestion du temps
+
+#### Interaction avec logiciels extérieurs
 
 ### Développement orienté objet
-
-### Développement 2
 
 ### Nouvelle manière de gérer la documentation
 
