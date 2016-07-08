@@ -198,6 +198,11 @@ TODO
 #### Gestion du temps
 
 #### Communication avec le client
+Ce projet est probablement celui où j’ai été le plus prolifique ... en questions. La comptabilité n’est en effet absolument pas mon point fort et les spécifications fonctionnelles elles-mêmes étaient particulièrement difficiles à cerner. Il fallait donc, en plus de savoir ce que voulait le client, savoir *pourquoi* il la voulait.
+
+#### Conclusion
+La participation au développement du logiciel de suivi du workflow comptable fut une des expériences les plus intéressantes de mon alternance. Au delà du professionnalisme et de la bonne humeur des personnes avec qui s’est déroulé ce projet, ce fut aussi grâce à la sensation de contribuer réellement à quelque chose qui a perduré dans le temps. En effet, mes premières interventions sur le WF ont commencées dès le 6e mois et ont durées jusqu’à l’avant-dernière semaine de mon alternance (un peu à la manière d’un fil rouge).
+Sur le plan technique, ce projet m’a permis de bien saisir l’importance fondamentale qu’ont le contact et les retours clients. C’était d’autant plus valable ici car le contact régulier était à la fois présent et *indispensable*, le domaine du projet n’étant absolument pas mon point fort.
 
 ### Développement : Extractions de données France Invendus pour Cognos
 
