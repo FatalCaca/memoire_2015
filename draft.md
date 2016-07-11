@@ -200,6 +200,19 @@ TODO
 #### Communication avec le client
 Ce projet est probablement celui où j’ai été le plus prolifique ... en questions. La comptabilité n’est en effet absolument pas mon point fort et les spécifications fonctionnelles elles-mêmes étaient particulièrement difficiles à cerner. Il fallait donc, en plus de savoir ce que voulait le client, savoir *pourquoi* il la voulait.
 
+Comme nous l’avons dis plus haut, le pôle étude est en train de mettre en place un système de gestion et de suivi de projet centralisé. Le modéle envisagé est très proche d’un cycle en V. Ou en cascade. Dans tous les cas c’est un cycle de vie en *one shot* (un cycle unique). Si le logiciel peut faire l’objet de plusieurs demandes et peut donc évoluer de manière presque itérative, chaque demande ne vit qu’une seule fois. Nous avons également dit que cette manière de faire était envisagée pour toutes les demandes future mais qu’elle peinait encore à s’imposer partout. Cette tâche fut une bonne occurence pour comprendre pourquoi.
+
+Examinons certains des avantages d’un modèle à cycle unique :
+1. La qualité d’une étape garantie la qualité des étapes suivantes
+2. Les surprises sont limitées : on sait, *a priori* dans quoi est-ce que l’on s’engage
+3. On sait (à peu près) pour combien de temps on s’engage
+4. On sait (à peu près) la quantité de ressource que l’on va consommer
+5. Les deux parties (Œuvre et ouvrage) sont contractuellement protégées
+
+Le point 1. est un des plus intéressant. Le cycle et V et en cascade découlent des entreprises du BTP et de la manufacture. C’est en raison du point 1. qu’elles ont eu autant de succès dans ces domaines. Chaque étape entraine une consommation très lourde de ressources matérielles, il est donc nécessaire d’anticiper autant que faire se peut, sur “papier” (c’est-à-dire de n’importe quelle manière qui n’engage pas de ressource matérielle). Il est important d’anticiéer lorsque l’on engage beaucoup de ressources par la suite.
+Les points 2, 3 et 4 sont plus discutables. En effet, est-ce la méthodologie et le formalisme qui permettent cela, ou sont-ce les compétences et l’expérience de membres de l’équipe qui en sont responsables ?
+Le point 5. est également un point important pour toutes les sociétés de service et pour toutes les entités rendant service tout en restant assez indépendantes. Chez NOZ, le cloisonnement recherché entre les différents service fait que “protection” contractuelle est également désirable.
+
 #### Conclusion
 La participation au développement du logiciel de suivi du workflow comptable fut une des expériences les plus intéressantes de mon alternance. Au delà du professionnalisme et de la bonne humeur des personnes avec qui s’est déroulé ce projet, ce fut aussi grâce à la sensation de contribuer réellement à quelque chose qui a perduré dans le temps. En effet, mes premières interventions sur le WF ont commencées dès le 6e mois et ont durées jusqu’à l’avant-dernière semaine de mon alternance (un peu à la manière d’un fil rouge).
 Sur le plan technique, ce projet m’a permis de bien saisir l’importance fondamentale qu’ont le contact et les retours clients. C’était d’autant plus valable ici car le contact régulier était à la fois présent et *indispensable*, le domaine du projet n’étant absolument pas mon point fort.
