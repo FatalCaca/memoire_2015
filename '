@@ -200,7 +200,7 @@ TODO
 #### Communication avec le client
 Ce projet est probablement celui où j’ai été le plus prolifique ... en questions. La comptabilité n’est en effet absolument pas mon point fort et les spécifications fonctionnelles elles-mêmes étaient particulièrement difficiles à cerner. Il fallait donc, en plus de savoir ce que voulait le client, savoir *pourquoi* il la voulait.
 
-Comme nous l’avons dis plus haut, le pôle étude est en train de mettre en place un système de gestion et de suivi de projet centralisé. Le modéle employé est très proche d’un cycle en V. Ou en cascade. Dans tous les cas c’est un cycle de vie en *one shot* (un cycle unique). Si le logiciel peut faire l’objet de plusieurs demandes et peut donc évoluer de manière presque itérative, chaque demande ne vit qu’une seule fois. Nous avons également dit que cette manière de faire était envisagée pour toutes les demandes future mais qu’elle peinait encore à s’imposer partout. Cette tâche fut une bonne occurence pour comprendre pourquoi.
+Comme nous l’avons dis plus haut, le pôle étude est en train de mettre en place un système de gestion et de suivi de projet centralisé. Le modéle envisagé est très proche d’un cycle en V. Ou en cascade. Dans tous les cas c’est un cycle de vie en *one shot* (un cycle unique). Si le logiciel peut faire l’objet de plusieurs demandes et peut donc évoluer de manière presque itérative, chaque demande ne vit qu’une seule fois. Nous avons également dit que cette manière de faire était envisagée pour toutes les demandes future mais qu’elle peinait encore à s’imposer partout. Cette tâche fut une bonne occurence pour comprendre pourquoi.
 
 Examinons certains des avantages d’un modèle à cycle unique :
 1. La qualité d’une étape garantie la qualité des étapes suivantes
@@ -218,14 +218,7 @@ Dans le domaine du logiciel on se trouve face à plusieurs différences :
 * On peut développer par morceau et avoir des fonctionnalités non terminées mais quand même testables
 * Les ressources investies ne sont pas nécessairement perdues
 * Le retour en arrière n’est pas nécessairement coûteux. Certaines méthodologies comme l’XP recommandent même de ne pas avoir peur de suppimer du code
-Pour la première raison, éviter l’effet tunnel est possible, pour les deux dernières c’est souhaitable. On peut, dans le développement logiciel, se permettre de développer morceau par morceau en montrant les résultats au client au fur et à mesure. Chaque correctif est une dépense de temps mais elle reste moindre que si un grand retour en arrière est nécessaire au moment de la livraison.
-
-C’est pour ces raison que les méthodologies agiles, qui se basent sur des livraisons courtes et qui intègrent les correctifs continus, ont le vent en poupe. C’est également pour ces raisons que le monde du développement n’arrivera jamais à basculer entièrement vers un mode de fonctionnement en *one shot*. C’est pour ces raisons que le pôle SAP continue à travailler de manière moins formelle pour certaines demandes. Enfin, c’est pour ces raison que le système de gestion de tâches créé par le pôle étude, bien qu’envisagé en tant que gestion de projet “à la” cycle en V, se rapproche en réalité plus d’une gestion agile des tâches sans gestion de sprint.
-
-Les tâches sur le worflow comptabilité furent une bonne manière d’expérimenter plusieurs de ces points. Le workflow fut l’objet de plusieurs demandes, demandes qui étaient en réalité dans une certaine continuité entre-elles. Il est tout à fait possible d’imaginer que ces demandes euent été séparées de manière encore plus fine. Aussi, chaque demande faisait l’objet de nombreux aller-retours entre le développeur (moi) et le chef de projet, montrant ainsi l’aspect nécessaire du travail par itération.
-Mis à part les gros projets apportant de nouveaux flux et impliquant plusieurs services, et où un travail considérable en amont est absolument indispensable, on peut très bien imaginer qu’un travail itératif assumé soit tout à fait profitable au pôle SAP pour beaucoup de tâche. En effet une quantité importante de tâche concerne soit une évolution, soit de la maintenance. Dans ces cas un travail à cycle court et répété, avec des feedbacks nombreux, est idéal.
-
-Quoi qu’il en soit, au delà de l’organisation du pôle, un travail par itération et en faisant fonctionner le feedback fut particulièrement pour ces tâches, ne serait-ce que pour la partie de travail individuelle.
+Pour la première raison, éviter l’effet tunnel est possible, pour les deux dernières c’est souhaitable.
 
 #### Conclusion
 La participation au développement du logiciel de suivi du workflow comptable fut une des expériences les plus intéressantes de mon alternance. Au delà du professionnalisme et de la bonne humeur des personnes avec qui s’est déroulé ce projet, ce fut aussi grâce à la sensation de contribuer réellement à quelque chose qui a perduré dans le temps. En effet, mes premières interventions sur le WF ont commencées dès le 6e mois et ont durées jusqu’à l’avant-dernière semaine de mon alternance (un peu à la manière d’un fil rouge).
@@ -239,22 +232,26 @@ Il fallait également réaliser une transaction pour gérer de nouvelles donnée
 
 Il a fallu, quelques mois plus tard, revoir le fonctionnement des deux transactions (extraction et transaction de gestion) car il fallait rendre possible plusieurs travaux simultanés et concurrent sur une même offre. Cette révision fut surtout un travail d’étude et de prévention des risques.
 
+#### Gestion du temps
+
 #### Gestion des risques
-Cette tâche fut éprouvante en ce qui concerne l’aspect gestion des risques. En effet, lors de la seconde confrontation avec l’extraction FI pour Cognos. 
 
 ### Développement : Extractions de données de commande vers excel
 
 #### Besoin et résumé de la solution
 
+#### Gestion du temps
+
 #### Interaction avec logiciels extérieurs
 
 ### Développement orienté objet
 
-### Tests unitaires
-
 ### Nouvelle manière de gérer la documentation
 
 
+Gestion des risques
+Prise en charge des demandes
+Planification
 Métier
 Relation avec le client
 Documentation
