@@ -59,7 +59,7 @@ SAP a pour objectif d’être le plus génériques possible. Il propose en outre
 * Un second niveau d’adaptation est franchi par la configuration de SAP en fonction des besoins de l’entreprise : définition des modéles de facture, des centres de coût, etc.
 * Enfin, il est possible de développer et d’améliorer des programmes au sein même de SAP. Ce troisième niveau est le plus puissant et aussi le plus coûteux et terme de travail.
 On appelle le *standard SAP* toutes les fonctionnalités qui sont disponibles et utilisable qu’en configurant SAP. Des fonctionnalités sont dites *spécifiques* lorsqu’il est nécessaire de réaliser de nouveaux développements pour les obtenir.
-De manière générale, il est préférable pour les entreprises de rester au plus près du standard SAP, c’est à dire de ne le personnaliser que par la configuration, sans passer par de nouveaux développments. Cela n’est en revanche pas toujours possible. Certaines entreprises, comme NOZ, ont un fonctionnement si parciculier par rapport aux autres entreprises, qu’il est inévitable de passer par le développement de nouvelles transactions dites “spécifiques”. Une quantité importante des fonctionnalités SAP utilisées par NOZ sont des fonctionnalités spécifiques.
+De manière générale, il est préférable pour les entreprises de rester au plus près du standard SAP, c’est à dire de ne le personnaliser que par la configuration, sans passer par de nouveaux développement Cela n’est en revanche pas toujours possible. Certaines entreprises, comme NOZ, ont un fonctionnement si parciculier par rapport aux autres entreprises, qu’il est inévitable de passer par le développement de nouvelles transactions dites “spécifiques”. Une quantité importante des fonctionnalités SAP utilisées par NOZ sont des fonctionnalités spécifiques.
 
 #### Les transactions
 SAP fonctionne suivant un modèle client-serveur rapellant un peu les anciens systèmes mainframes. Chaque poste client se connecte au serveur (le Web Application Server) mais ne réalise en réalité quasiment aucun travail. Le programme tournant sur le poste client n’est, à peu de choses près, qu’une interface graphique pour interroger le serveur. Tout le travail de traitement et de recherche en base de donnée est réalisé par le programme serveur.
@@ -256,20 +256,48 @@ Le tout à la manière d’un réaiguillage de train (en route).
 Il fut décidé de créer une routine d’extraction des données existantes vers la nouvelle table spécifique. Le risque était que les données ne soient pas copiées en entier, ou qu’elles fuent altérée d’une quelconque manière. Il a donc fallu lancer plusieurs extractions avec des données aussi diverses que possibles (sur un environnement de développement) et ensuite comparer des dumps de base de données pour vérifier que les données à l’arrivée étaient bien celles attendues.
 Le programme de gestion des données FI fut également créé et il fallu là-aussi tester abondamment. Il devait gérér les nouvelles données de la même manière que les anciennes et il ne devait plus du tout toucher aux anciennes. Là aussi la majorité des tests furent des comparatifs de dumps de base de données.
 Le programme de gestion des données générales des offres ne fut pas touché. En effet il s’agit d’une transaction qui était en évolution permanente suite à un grand projet (de la référence unique, maintenant en production) et qui était donc compliquée à modifier en gérant simultanémént les changements de la référence unique et de l’évolution FI (SAP gère les branches de manière laborieuse, nous reviendrons sur ce point plus bas). Ceci eut pour conséqueunce que tous les changements dont nous parlons là furent en réalité réalisés de manière à gérer une période de “transition” pendant laquelle la transaction de gestion des données générales d’offres devait continuer à fonctionner “à l’ancienne” alors que tout le reste des programmes évoqués devaient fonctionner suivant le nouveau modèle. Paradoxalement, la non-modification d’une transaction eut pour conséquence la nécéssité de tester d’autant plus que si l’ensemble avait évolué d’un coup.
-Enfin, le programme d’extraction des données vers Cognos fut modifié. Comme pour tous les changement dont nous parlons ici, la difficulté ne fut pas de réaliser l’évolution mais bien de s’assurer qu’elle n’entrainait aucune régression. Les tests furent réalisés non pas en modifiant directement le programme d’extraction mais en en faisant d’abord une copie. Nous avons pu ainsi transporter dans l’environnement de test le programme original et sa version modifiée. Plusieurs extraction test on été réalisées et les fichiers de données extraites ont pu être comparées. C’est comme cela que le nouveau programme a été validé.
+Enfin, le programme d’extraction des données vers Cognos fut modifié. Comme pour tous les changement dont nous parlons ici, la difficulté ne fut pas de réaliser l’évolution mais bien de s’assurer qu’elle n’entrainait aucune régression. Les tests furent réalisés non pas en modifiant directement le programme d’extraction mais en en faisant d’abord une copie. Nous avons pu ainsi transporter dans l’environnement de test le programme original et sa version modifiée. Plusieurs extractions test on été réalisées et les fichiers de données extraites ont pu être comparées. C’est comme cela que le nouveau programme a été validé.
 
+#### Conclusion
+Ce projet fut assez éprouvant. Il fut plus lourd en stresse et en charge de vérification et de validation que de développement à proprement parler. Il fut cependant très intéressant car il a permit de montrer l’intérêt des méthodes et des outils orientés vers le test.
+Il fut aussi une bonne occasion de saisir l’importance de planifier de nombreuses actions lorsque celle-ci sont aussi lourdes de conséquences.
 
 ### Développement : Extractions de données de commande vers excel
 
 #### Besoin et résumé de la solution
+Cette mission, un peu plus légère en terme de charge que celles précédemment présentées, a consisté en un générateur de reporting sous forme de fichiers excel. Les reportings en question étaien supposés afficher un comparatif entre des quantités commandées et des quantités réellement reçues. C’est une tâche qui était bien connue et ancrée dans le métier. La procédure à automatiser et les résultats attendus étaient donc clairs.
+Elle mérite sa section ici car elle va permettre de parler de la difficulté qu’il peut y avoir à faire fonctionner deux logiciels étranger entre eux et du rôle de support de la DSI.
 
 #### Interaction avec logiciels extérieurs
+L’aspect le plus lourd et le plus négocié avec le client pour cette demande fut la nécessité d’utiliser Excel. En effet, Excel s’intègre mal dans SAP (c’est un corrolaire du fait que Excel ne s’intègre bien nulle part). Forcer son utilisation revenait à limiter certaines fonctionnalités, augmenter la charge de développement et augmenter la charge de maintenance. Ce fut pourtant un point non négociable de la demande.
+Les difficultés de réalisation furent bien celles attendues : Excel était très pénible à intégrer. Je pourrais répéter ici tout ce qui a été dit plus haut sur les besoin de la documentation. C’est un cas quasi-similaire : la documentation de l’outil est presque inexistante et il faut tester chacune des fonctions de l’API d’Exel en se basant sur son nom puis en la testant manuellement dans des programmes d’essais. La moité de la documentation technique de la transaction a, au final, consistée en une documentation des fonctions d’Excel (avec des informations du type “rouge = 1, bleu = 2, vert = 3” ou “ligne horizontale = 1, double ligne = 2, ligne pointillée = 3”).
 
-### Développement orienté objet
+De telles difficultés amènent à se demander à quel point cela peut-il valoir le coup de forcer l’intégration d’un autre outil au sein de l’ERP de la boite. En effet, dans tous les cas il s’agit de tâches qui pourraient être mieux réalisées si elles étaient gérées directement par SAP. En plus de cela, réaliser des demandes où Excel est intégré augmente l’intertie de l’idée qu’il doit être possible d’utiliser Excel pour n’importe quelle tâche. En réalité, cette problématique relève probablement plus de l’ordre organisationnel et structurel que de détails techniques.
 
-### Tests unitaires
+#### Rôle support de la DSI
+La DSI a un rôle de support. C’est un centre de coût, par opposition aux centres de profits comme peuvent l’être des commerciaux, qui créent du business. Sa tâche est avant tout d’automatiser  des tâches métier qui sont déjà connues et maitrisées. Dans l’idéal, l’automatisation de ces tâches donnent également lieu à une rationnalisation de celles-ci. Ceci n’est en revanche possible que lorsqu’il existe une grande coopération entre les différents services. En effet, rationnaliser une tâche, c’est modifier la manière dont elle est réalisées. Cela implique donc des changement d’habitude dans la partie opérationnelle du métier. Ce n’est absolument pas anodin. C’est pour cette raison qu’il vaut mieux, du point de vue métier, continuer à utiliser excel. Un changement d’outil est un investement potentiellememt risqué, et c’est au métier d’assumer les conséquences négatives d’un changement dans leur manière de fonctionner. L’informatique a un rôle de support. C’est le supporté qui génère du revenu. C’est donc le supporté qui a le dernier mot.
 
-### Nouvelle manière de gérer la documentation
+Ceci se tient tout à fait. Nous ne sommes toutefois pas en train de dire que c’est le service demandeur qui *devrait* avoir systématiquement le dernier mot, ou que c’est forcément la meilleur chose pour la croissance de l’entreprise. C’est d’ailleurs probablement le contraire. Mais c’est ce qui se passe dans les faits. Ces décisions forcées et non-optimales pour l’entreprises sont dues au cloisonnement entre les différents services.
+
+Le mode de fonctionnement où les services sont clairement cloisonné a ses avantages (cela attise la compétition et responsabilise les services) mais c’est un mode de fonctionnement qui commence à montrer de sévères lacunes. Cela créé ce qu’on appelle en théorie des jeux des “optimums locaux”. La décision idéale pour l’entreprise (rationnaliser les tâches à automatiser et former le méter sur la durée) est bloquée par deux optimums locaux :
+* pour le métier, le changement doit être le plus petit possible. Il ne doit pas faire baisser du tout les résultats du service
+* pour l’informatique, étant donné que c’est le métier qui aura le dernier mot, il doit faire en sorte de s’engager sur le minimum possible et réduire ses coûts autant que possible
+Aucune de ces deux conséquence n’est désirable pour l’entreprise en tant qu’ensemble, mais c’est une conséquence inévitable d’un fonctionnement à services cloisonnés.
+
+C’est pour ces raisons que des méthodes de fonctionnement comme devops, où les équipes sont constitués à la fois de développeurs et d’opérationnels, ont le vent en poupe. C’est vers cette direction que le pôle étude se dirige en créant une cellule d’aide à la MOA.
+
+#### Conclusion
+Pour conclure, le problème Excel ne semble donc pas être un problème technique mais bien un problème organisationnel.
+Malgré cela, ce fut toutefois une mission enrichissante et intéressante.
+
+### Quelques sujets en vrac
+Cette dernière section contient quelques réflexions qui ne rentraient dans le cadre d’aucune mission en particulier mais qui me tenaient quand même à cœur. Elles sont majoritairement technique.
+
+#### Développement orienté objet et legacy code
+
+#### Tests unitaires
+
+#### Nouvelle manière de gérer la documentation
 
 
 Métier
